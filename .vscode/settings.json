@@ -1,0 +1,16 @@
+{
+  "[django-html]": {
+    "editor.defaultFormatter": "jraylan.django-template-extension"
+  },
+  "[html]": {
+    "editor.defaultFormatter": "jraylan.django-template-extension"
+  },
+  "editor.hover.enabled": "on",
+  "emmet.includeLanguages": {
+    "django-html": "html"
+  },
+  "python.analysis.autoImportCompletions": true,
+  "python.analysis.typeCheckingMode": "off",
+  "python.terminal.activateEnvInCurrentTerminal": true,
+  "terminal.integrated.cwd": "${workspaceFolder}\\realestate"
+}
