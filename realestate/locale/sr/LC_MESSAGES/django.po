@@ -1,0 +1,104 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-01-31 10:45+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+msgid "field.required"
+msgstr "Polje {field} je obavezno."
+msgid "field.alpha"
+msgstr "Polje {field} mora sadržati samo slova."
+msgid "field.integer"
+msgstr "Polje {field} mora biti ceo broj."
+msgid "field.date"
+msgstr "Polje {field} mora biti ispravan datum."
+
+# Listing
+msgid "move_in_date.after_or_equal"
+msgstr "Polje datum useljenja mora biti bar danas."
+
+msgid "street.regex"
+msgstr "Polje ulica mora biti ispravna ulica."
+
+msgid "story_count.min"
+msgstr "Polje broj spratova mora biti pozitivan broj."
+
+msgid "room_count.min"
+msgstr "Polje broj soba mora biti bar 0."
+
+msgid "area.min"
+msgstr "Polje površina mora biti bar 10 m2."
+
+msgid "story.min"
+msgstr "Polje sprat mora biti bar 0."
+
+msgid "price.min"
+msgstr "Polje cena mora biti bar 100 EUR."
+
+# User
+msgid "email.email"
+msgstr "Polje imejl adresa mora biti ispravna imejl adresa."
+
+msgid "password2.confirmed"
+msgstr "Potvrda polja šifra se ne podudara."
+
+msgid "phone.regex"
+msgstr "Polje broj telefona mora biti ispravan broj telefona."
+
+msgid "birth_date.adult"
+msgstr "Osoba mora biti punoletna."
+
+# Listing field names
+msgid "street"
+msgstr "ulica"
+msgid "story_count"
+msgstr "broj spratova"
+msgid "room_count"
+msgstr "broj soba"
+msgid "area"
+msgstr "površina"
+msgid "story"
+msgstr "sprat"
+msgid "move_in_date"
+msgstr "datum useljenja"
+msgid "title"
+msgstr "naslov"
+msgid "price"
+msgstr "cena"
+msgid "description"
+msgstr "opis"
+
+# User field names
+msgid "email"
+msgstr "imejl adresa"
+msgid "password1"
+msgstr "šifra"
+msgid "password2"
+msgstr "potvrda šifre"
+msgid "password"
+msgstr "šifra"
+msgid "curr_password"
+msgstr "trenutna šifra"
+msgid "phone"
+msgstr "broj telefona"
+msgid "first_name"
+msgstr "ime"
+msgid "last_name"
+msgstr "prezime"
+msgid "birth_date"
+msgstr "datum rođenja"

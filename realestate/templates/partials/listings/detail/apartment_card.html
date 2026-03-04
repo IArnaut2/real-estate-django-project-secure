@@ -1,0 +1,19 @@
+{% load static %}
+{# Card #}
+<div class="card mb-3">
+  <div class="row row-cols-1 row-cols-xl-2 g-0">
+    {# Card image #}
+    <div class="col">
+      <img class="card-img-top" src="{% static '/images/apartment.jpg' %}" alt="Stan">
+    </div>
+
+    {# Card header & body #}
+    <div class="col">
+      {% include "../list/header.html" %}
+
+      <div class="card-body">{% include "./apartment.html" %}</div>
+    </div>
+  </div>
+
+  {% include "../list/footer.html" %}
+</div>

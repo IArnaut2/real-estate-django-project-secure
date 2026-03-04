@@ -1,0 +1,22 @@
+{% load static %}
+{# Card #}
+<div class="card mb-3">
+  <div class="row row-cols-1 row-cols-lg-2 g-0">
+    {# Card image #}
+    <div class="col">
+      <img class="card-img-top" src="{% static '/images/apartment.jpg' %}" alt="Stan">
+    </div>
+
+    {# Card header & body #}
+    <div class="col">
+      {% include "./header.html" %}
+
+      <div class="card-body">
+        <p class="card-text fw-semibold">{{ listing.get_room_count() }}, {{ listing.get_area() }}, {{ listing.get_story() }}</p>
+        <p class="card-text">{{ listing.get_address() }}</p>
+      </div>
+    </div>
+  </div>
+
+  {% include "./footer.html" %}
+</div>

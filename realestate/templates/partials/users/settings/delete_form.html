@@ -1,0 +1,27 @@
+{# Delete form #}
+<form class="border border-danger-subtle rounded-3 p-3 mb-3" action="{% url 'user-delete' %}" method="post" novalidate>
+  <h3 class="fw-semibold mb-3">Brisanje naloga</h3>
+
+  <!-- 4 CSRF tokens -->
+  {% csrf_token %}
+
+  {% if messages %}
+    <div class="row mb-3">
+      <div class="col">
+        <div class="alert alert-danger">{{ messages.0 }}</div>
+      </div>
+    </div>
+  {% endif %}
+
+  <div class="row mb-3">
+    <label class="col-sm-4 col-form-label" for="password">Šifra</label>
+    <div class="col-sm-8">
+      {{ delete_form.password }}
+      {% if delete_form.password.errors %}
+        <span class="form-text text-danger">{{ delete_form.password.errors.0 }}</span>
+      {% endif %}
+    </div>
+  </div>
+
+  <input class="btn btn-danger fw-semibold" type="submit" value="Izbriši">
+</form>

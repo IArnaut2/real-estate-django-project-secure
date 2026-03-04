@@ -1,0 +1,98 @@
+{% extends "../partials/layout.html" %}
+{% block title %}Registracija{% endblock %}
+{% block content %}
+  <h1 class="fw-bold mb-3">Registracija</h1>
+
+  <div class="row">
+    <div class="col-md-6 col-lg-4">
+      {# 4 Authentication & authorization #}
+      {# Form #}
+      <form class="border border-secondary-subtle rounded-3 p-3 mb-3" action="{% url 'register' %}" method="post" novalidate>
+        <p class="mb-3">Imaš nalog? <a class="fw-bold" href="{% url 'login' %}">Prijavi se</a></p>
+
+        {# 3 CSRF tokens #}
+        {% csrf_token %}
+
+        {% if messages %}
+          <div class="row mb-3">
+            <div class="col-12">
+              <div class="alert alert-danger">{{ messages.0 }}</div>
+            </div>
+          </div>
+        {% endif %}
+
+        <div class="row mb-3">
+          <label class="col-sm-4 col-form-label" for="email">Imejl adresa</label>
+          <div class="col-sm-8">
+            {{ form.email }}
+            {% if form.email.errors %}
+              <span class="form-text text-danger">{{ form.email.errors.0 }}</span>
+            {% endif %}
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="col-sm-4 col-form-label" for="password1">Šifra</label>
+          <div class="col-sm-8">
+            {{ form.password1 }}
+            {% if form.password1.errors %}
+              <span class="form-text text-danger">{{ form.password1.errors.0 }}</span>
+            {% endif %}
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="col-sm-4 col-form-label" for="password2">Ponovi šifru</label>
+          <div class="col-sm-8">
+            {{ form.password2 }}
+            {% if form.password2.errors %}
+              <span class="form-text text-danger">{{ form.password2.errors.0 }}</span>
+            {% endif %}
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="col-sm-4 col-form-label" for="phone">Broj telefona</label>
+          <div class="col-sm-8">
+            {{ form.phone }}
+            {% if form.phone.errors %}
+              <span class="form-text text-danger">{{ form.phone.errors.0 }}</span>
+            {% endif %}
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="col-sm-4 col-form-label" for="first_name">Ime</label>
+          <div class="col-sm-8">
+            {{ form.first_name }}
+            {% if form.first_name.errors %}
+              <span class="form-text text-danger">{{ form.first_name.errors.0 }}</span>
+            {% endif %}
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="col-sm-4 col-form-label" for="last_name">Prezime</label>
+          <div class="col-sm-8">
+            {{ form.last_name }}
+            {% if form.last_name.errors %}
+              <span class="form-text text-danger">{{ form.last_name.errors.0 }}</span>
+            {% endif %}
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="col-sm-4 col-form-label" for="birth_date">Datum rođenja</label>
+          <div class="col-sm-8">
+            {{ form.birth_date }}
+            {% if form.birth_date.errors %}
+              <span class="form-text text-danger">{{ form.birth_date.errors.0 }}</span>
+            {% endif %}
+          </div>
+        </div>
+
+        <input class="btn btn-primary fw-semibold" type="submit" value="Registruj se">
+      </form>
+    </div>
+  </div>
+{% endblock %}

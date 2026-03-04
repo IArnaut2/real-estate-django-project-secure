@@ -1,0 +1,21 @@
+{% load static %}
+{# Card #}
+<div class="card mb-3">
+  <div class="row row-cols-sm-2 row-cols-md-1 g-0">
+    {# Card image #}
+    <div class="col">
+      <img class="rounded-circle w-50 mx-auto my-3" src="{% static '/images/avatar-3814081_640.png' %}" alt="Avatar">
+    </div>
+
+    {# Card body #}
+    <div class="col">
+      <div class="card-body">
+        <a class="text-decoration-none" href="{% url 'user-detail' user.id %}">
+          <h2 class="card-title fw-bold">{{ user }}</h2>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  {% include "../list/footer" %}
+</div>

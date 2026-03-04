@@ -1,0 +1,57 @@
+{# Edit form #}
+<form class="border border-secondary-subtle rounded-3 p-3 mb-3" action="{% url 'user-update' %}" method="post" novalidate>
+  <h3 class="fw-semibold mb-3">Osnovni podaci</h3>
+
+  <!-- 4 CSRF tokens -->
+  {% csrf_token %}
+
+  {% if messages %}
+    <div class="row mb-3">
+      <div class="col-12">
+        <div class="alert alert-danger">{{ messages.0 }}</div>
+      </div>
+    </div>
+  {% endif %}
+
+  <div class="row mb-3">
+    <label class="col-sm-4 col-form-label" for="email">Imejl adresa</label>
+    <div class="col-sm-8">
+      {{ update_form.email }}
+      {% if update_form.email.errors %}
+        <span class="form-text text-danger">{{ update_form.email.errors.0 }}</span>
+      {% endif %}
+    </div>
+  </div>
+
+  <div class="row mb-3">
+    <label class="col-sm-4 col-form-label" for="curr_password">Trenutna šifra</label>
+    <div class="col-sm-8">
+      {{ update_form.curr_password }}
+      {% if update_form.curr_password.errors %}
+        <span class="form-text text-danger">{{ update_form.curr_password.errors.0 }}</span>
+      {% endif %}
+    </div>
+  </div>
+
+  <div class="row mb-3">
+    <label class="col-sm-4 col-form-label" for="password1">Nova šifra</label>
+    <div class="col-sm-8">
+      {{ update_form.password1 }}
+      {% if update_form.password1.errors %}
+        <span class="form-text text-danger">{{ update_form.password1.errors.0 }}</span>
+      {% endif %}
+    </div>
+  </div>
+
+  <div class="row mb-3">
+    <label class="col-sm-4 col-form-label" for="password2">Ponovi novu šifru</label>
+    <div class="col-sm-8">
+      {{ update_form.password2 }}
+      {% if update_form.password2.errors %}
+        <span class="form-text text-danger">{{ update_form.password2.errors.0 }}</span>
+      {% endif %}
+    </div>
+  </div>
+
+  <input class="btn btn-primary fw-semibold" type="submit" value="Snimi">
+</form>

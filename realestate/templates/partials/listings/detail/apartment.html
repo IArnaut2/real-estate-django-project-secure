@@ -1,0 +1,33 @@
+<div>
+  {# List #}
+  <ul class="list-group list-group-horizontal mb-3">
+    <li class="list-group-item text-center flex-fill">
+      Broj soba
+      <div class="fw-bold">{{ listing.get_room_count() }}</div>
+    </li>
+    <li class="list-group-item text-center flex-fill">
+      Površina
+      <div class="fw-bold">{{ listing.get_area() }}</div>
+    </li>
+    <li class="list-group-item text-center flex-fill">
+      Sprat
+      <div class="fw-bold">{{ listing.get_story() }}</div>
+    </li>
+  </ul>
+
+  {# Table #}
+  <table class="table table-striped">
+    <tr>
+      <td>Stanje</td>
+      <td class="fw-bold">{{ listing.condition }}</td>
+    </tr>
+    <tr>
+      <td>Grejanje</td>
+      <td class="fw-bold">{{ listing.heating }}</td>
+    </tr>
+    <tr>
+      <td>Opremljenost</td>
+      <td class="fw-bold">{{ listing.furnishings }}</td>
+    </tr>
+  </table>
+</div>

@@ -1,0 +1,40 @@
+{# Form #}
+<form class="border border-secondary-subtle rounded-3 p-3 mb-3" action="{% url 'listing-search' %}" method="get" novalidate>
+  <div class="row mb-3">
+    <label class="col-sm-4 col-form-label" for="city">Grad</label>
+    <div class="col-sm-8">
+      <input class="form-control" type="text" name="grad" id="city" maxlength="255">
+    </div>
+  </div>
+
+  <div class="row mb-3">
+    <label class="col-sm-4 col-form-label" for="room_count">Broj soba</label>
+    <div class="col-sm-8">
+      <input class="form-control" type="number" name="broj_soba" id="room_count" min="0">
+    </div>
+  </div>
+
+  <fieldset class="row mb-3">
+    <legend class="col-sm-4 col-form-label">Cena</legend>
+    <div class="col-sm-8">
+      <div class="input-group">
+        <input class="form-control" type="number" name="cena_od" min="0" placeholder="Od">
+        <input class="form-control" type="number" name="cena_do" min="0" placeholder="Do">
+      </div>
+    </div>
+  </fieldset>
+
+  <fieldest class="row mb-3">
+  
+    <legend class="col-sm-4 col-form-label">Površina</legend>
+    <div class="col-sm-8">
+      <div class="input-group">
+        <input class="form-control" type="number" name="m2_od" min="0" placeholder="Od">
+        <input class="form-control" type="number" name="m2_do" min="0" placeholder="Do">
+      </div>
+    </div>
+  
+  </fieldest>
+
+  <input class="btn btn-primary fw-semibold" type="submit" value="Pretraži">
+</form>

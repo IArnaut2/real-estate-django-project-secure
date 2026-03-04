@@ -1,0 +1,39 @@
+{# Terms #}
+<fieldset>
+  <h3 class="fw-semibold mb-3">Uslovi zakupa</h3>
+
+  <div class="row mb-3">
+    <label class="col-sm-4 col-form-label" for="move_in_date">Useljiv</label>
+    <div class="col-sm-8">
+      {{ terms_form.move_in_date }}
+      {% if terms_form.move_in_date.errors %}
+        <span class="form-text text-danger">{{ terms_form.move_in_date.errors.0 }}</span>
+      {% endif %}
+    </div>
+  </div>
+
+  <fieldset class="row mb-3">
+    <div class="col-12">
+      <div class="form-check">
+        {{ terms_form.deposit }}
+        <label class="form-check-label" for="deposit">Depozit</label>
+      </div>
+      <div class="form-check">
+        {{ terms_form.for_students }}
+        <label class="form-check-label" for="for_students">Za studente</label>
+      </div>
+      <div class="form-check">
+        {{ terms_form.for_workers }}
+        <label class="form-check-label" for="for_workers">Za radnike</label>
+      </div>
+      <div class="form-check">
+        {{ terms_form.smoking_allowed }}
+        <label class="form-check-label" for="smoking_allowed">Dozvoljeno pušenje</label>
+      </div>
+      <div class="form-check">
+        {{ terms_form.pets_allowed }}
+        <label class="form-check-label" for="pets_allowed">Dozvoljeni ljubimci</label>
+      </div>
+    </div>
+  </fieldset>
+</fieldset>

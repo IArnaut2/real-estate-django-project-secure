@@ -1,0 +1,10 @@
+{# Sort select #}
+<form class="w-50 mb-3" method="get">
+  <select class="form-select" name="redosled" onchange="this.form.submit()">
+    {% for ot in order_list %}
+      <option value="{{ ot.0 }}" {% if ot.0 == request.GET.redosled %}selected{% endif %}>
+        {{ ot.1 }}
+      </option>
+    {% endfor %}
+  </select>
+</form>

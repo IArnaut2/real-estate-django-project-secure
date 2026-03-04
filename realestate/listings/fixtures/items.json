@@ -1,0 +1,32 @@
+[
+  {
+    "model": "listings.item",
+    "pk": 1,
+    "fields": { "name": "Klima" }
+  },
+  {
+    "model": "listings.item",
+    "pk": 2,
+    "fields": { "name": "Telefon" }
+  },
+  {
+    "model": "listings.item",
+    "pk": 3,
+    "fields": { "name": "TV" }
+  },
+  {
+    "model": "listings.item",
+    "pk": 4,
+    "fields": { "name": "Internet" }
+  },
+  {
+    "model": "listings.item",
+    "pk": 5,
+    "fields": { "name": "Terasa" }
+  },
+  {
+    "model": "listings.item",
+    "pk": 6,
+    "fields": { "name": "Lođa" }
+  }
+]

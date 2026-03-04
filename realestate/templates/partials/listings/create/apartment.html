@@ -1,0 +1,54 @@
+{# Apartment #}
+<fieldset>
+  <h3 class="fw-semibold mb-3">Podaci o stanu</h3>
+
+  <div class="row mb-3">
+    <label class="col-sm-4 col-form-label" for="room_count">Broj soba</label>
+    <div class="col-sm-8">
+      {{ listing_form.room_count }}
+      {% if listing_form.room_count.errors %}
+        <span class="form-text text-danger">{{ listing_form.room_count.errors.0 }}</span>
+      {% endif %}
+    </div>
+  </div>
+
+  <div class="row mb-3">
+    <label class="col-sm-4 col-form-label" for="area">Površina</label>
+    <div class="col-sm-8">
+      {{ listing_form.area }}
+      {% if listing_form.area.errors %}
+        <span class="form-text text-danger">{{ listing_form.area.errors.0 }}</span>
+      {% endif %}
+    </div>
+  </div>
+
+  <div class="row mb-3">
+    <label class="col-sm-4 col-form-label" for="story">Sprat</label>
+    <div class="col-sm-8">
+      {{ listing_form.story }}
+      {% if listing_form.story.errors %}
+        <span class="form-text text-danger">{{ listing_form.story.errors.0 }}</span>
+      {% endif %}
+    </div>
+  </div>
+
+  <div class="row mb-3">
+    <label class="col-sm-4 col-form-label" for="condition">Stanje</label>
+    <div class="col-sm-8">{{ listing_form.condition }}</div>
+  </div>
+
+  <div class="row mb-3">
+    <label class="col-sm-4 col-form-label" for="heating">Grejanje</label>
+    <div class="col-sm-8">{{ listing_form.heating }}</div>
+  </div>
+
+  <div class="row mb-3">
+    <label class="col-sm-4 col-form-label" for="furnishings">Opremljenost</label>
+    <div class="col-sm-8">{{ listing_form.furnishings }}</div>
+  </div>
+
+  <div class="row mb-3">
+    <label class="col-sm-4 col-form-label" for="items">Predmeti</label>
+    <div class="col-sm-8">{{ listing_form.items }}</div>
+  </div>
+</fieldset>

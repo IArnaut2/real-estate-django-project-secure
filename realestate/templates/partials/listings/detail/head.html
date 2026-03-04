@@ -1,0 +1,14 @@
+<div class="d-flex justify-content-between mb-3">
+  {# 1 Authentication & authorization #}
+  {% if user.is_authenticated and user == listing.poster %}
+    <form action="{% url 'listing-delete' listing.id %}">
+      {# 4 CSRF tokens #}
+      {% csrf_token %}
+
+      <div class="btn-group" role="group">
+        <a class="btn btn-secondary fw-semibold" href="{% url 'listing-edit' listing.id %}">Izmeni</a>
+        <button class="btn btn-danger fw-semibold" type="submit">Obriši</button>
+      </div>
+    </form>
+  {% endif %}
+</div>

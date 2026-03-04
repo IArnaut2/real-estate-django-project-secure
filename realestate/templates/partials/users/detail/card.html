@@ -1,0 +1,28 @@
+{% load static %}
+
+{# Card #}
+<div class="card mb-3">
+  <div class="row row-cols-sm-2 row-cols-md-1 g-0">
+    {# Card image #}
+    <div class="col">
+      <img class="card-img-top" src="{% static '/images/avatar.png' %}" alt="Korisnik">
+    </div>
+
+    {# Card body #}
+    <div class="col">
+      <div class="card-body">
+        <h3 class="card-text">{{ user.get_full_name }}</h3>
+
+        <!-- 4 Authentication & authorization -->
+        {% if user.is_authenticated and request.user == user %}
+          <div class="list-group list-group-flush">
+            <a class="list-group-item list-group-item-action fw-semibold" href="{% url 'user-saved' %}">Sačuvani oglasi</a>
+            <a class="list-group-item list-group-item-action fw-semibold" href="{% url 'user-settings' %}">Podešavanja</a>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+
+  {% include './footer.html' %}
+</div>

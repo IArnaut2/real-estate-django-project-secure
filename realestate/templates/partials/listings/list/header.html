@@ -1,0 +1,8 @@
+{# Card header #}
+<div class="card-header d-flex justify-content-between align-items-center">
+  <a class="card-link text-decoration-none" href="{% url 'listing-detail' listing.id %}">
+    <h2 class="card-title fw-bold">{{ listing }}</h2>
+  </a>
+
+  <div class="bg-primary fw-semibold text-light rounded-2 px-3 py-2">{{ listing.get_price() }}</div>
+</div>

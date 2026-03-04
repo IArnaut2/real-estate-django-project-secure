@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="sr">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock title %} | Student Nekretnine</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    
+    <style>
+      #logo {
+        height: 48px;
+        filter: invert()
+      }
+
+      html,
+      body {
+        height: 100%;
+      }
+    </style>
+  </head>
+
+  <body class="d-flex flex-column">
+    {# Navbar #}
+    <nav class="navbar navbar-expand-md navbar-expand-lg bg-success sticky-top mb-3 py-0">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="{% url 'listing-list' %}">
+          <img class="d-block" id="logo" src="{% static '/images/logo.png' %}" alt="Logo">
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#toggler" aria-controls="#toggler" aria-expanded="false">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="toggler">
+          <ul class="navbar-nav me-auto">
+            <li class="nav-item btn btn-success px-md-1 py-md-3">
+              <a class="nav-link fw-bold text-light" href="{% url 'listing-list' %}">Oglasi</a>
+            </li>
+            <li class="nav-item btn btn-success px-md-1 py-md-3">
+              <a class="nav-link fw-bold text-light" href="{% url 'listing-create' %}">Novi oglas</a>
+            </li>
+          </ul>
+
+          <ul class="navbar-nav">
+            <!-- 4 Authentication & authorization -->
+            {% if user.is_authenticated %}
+              <li class="nav-item btn btn-success px-md-1 py-md-3">
+                <a class="nav-link fw-bold text-light" href="{% url 'user-detail' user.id %}">Profil</a>
+              </li>
+              <li class="nav-item btn btn-success px-md-1 py-md-3">
+                <form action="{% url 'logout' %}" method="post">
+                  {# 3 CSRF tokens #}
+                  {% csrf_token %}
+                  <button class="nav-link fw-bold text-light" type="submit">Odjava</button>
+                </form>
+              </li>
+            {% else %}
+              <li class="nav-item btn btn-success px-md-1 py-md-3">
+                <a class="nav-link fw-bold text-light" href="{% url 'register' %}">Registracija</a>
+              </li>
+              <li class="nav-item btn btn-success px-md-1 py-md-3">
+                <a class="nav-link fw-bold text-light" href="{% url 'login' %}">Prijava</a>
+              </li>
+            {% endif %}
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    {# Main #}
+    <main class="flex-grow-1">
+      <div class="container">
+        {% block content %}{% endblock content %}
+      </div>
+    </main>
+
+    {# Footer #}
+    <footer class="bg-success flex-shrink-0">
+      <div class="container d-flex justify-content-center my-3">
+        <div class="fw-semibold text-light">Igor Arnautović 243m/23</div>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+  </body>
+</html>

@@ -1,0 +1,69 @@
+{# Building #}
+<div class="mb-3">
+  <h3 class="fw-semibold border-bottom border-secondary-subtle pb-3 mb-3">Podaci o zgradi</h3>
+  <p>{{ listing.getAddress() }}</p>
+
+  {# List #}
+  <ul class="list-group-flush">
+    {# djlint: off #}
+    {% if listing.elevator %}
+      <li class="list-group-item"><i class="bi bi-check text-success"></i>Lift</li>
+    {% endif %}
+    {% if listing.parking %}
+      <li class="list-group-item"><i class="bi bi-check text-success"></i>Parking</li>
+    {% endif %}
+    {% if listing.garage %}
+      <li class="list-group-item"><i class="bi bi-check text-success"></i>Garaža</li>
+    {% endif %}
+    {% if listing.cctv %}
+      <li class="list-group-item"><i class="bi bi-check text-success"></i>Video nadzor</li>
+    {% endif %}
+    {% if listing.intercom %}
+      <li class="list-group-item"><i class="bi bi-check text-success"></i>Interfon</li>
+    {% endif %}
+    {# djlint: on #}
+  </ul>
+</div>
+
+{# Items #}
+{% if listing.items %}
+  <div class="mb-3">
+    <h3 class="fw-semibold border-bottom border-secondary-subtle pb-3 mb-3">Predmeti</h3>
+    <p>{{ listing.items.all|join:', ' }}</p>
+  </div>
+{% endif %}
+
+{# Terms #}
+<div class="mb-3">
+  <h3 class="fw-semibold border-bottom border-secondary-subtle pb-3 mb-3">Uslovi zakupa</h3>
+  <p>{{ listing.get_move_in_date() }}</p>
+
+  {% with terms=listing.terms %}
+    {# List #}
+    <ul class="list-group-flush">
+      {# djlint: off #}
+      {% if terms.deposit %}
+        <li class="list-group-item"><i class="bi bi-check text-success"></i>Obavezan depozit</li>
+      {% endif %}
+      {% if terms.for_students %}
+        <li class="list-group-item"><i class="bi bi-check text-success"></i>Za studente</li>
+      {% endif %}
+      {% if terms.for_workers %}
+        <li class="list-group-item"><i class="bi bi-check text-success"></i>Za radnike</li>
+      {% endif %}
+      {% if terms.smoking_allowed %}
+        <li class="list-group-item"><i class="bi bi-check text-success"></i>Dozvoljeno pušenje</li>
+      {% endif %}
+      {% if terms.pets_allowed %}
+        <li class="list-group-item"><i class="bi bi-check text-success"></i>Dozvoljeni ljubimci</li>
+      {% endif %}
+      {# djlint: on #}
+    </ul>
+  {% endwith %}
+</div>
+
+{# Listing #}
+<div class="mb-3">
+  <h3 class="fw-semibold border-bottom border-secondary-subtle pb-3 mb-3">Opis</h3>
+  <p>{{ listing.description }}</p>
+</div>

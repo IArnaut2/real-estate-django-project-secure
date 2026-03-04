@@ -1,0 +1,49 @@
+{# Edit form #}
+<form class="border border-secondary-subtle rounded-3 p-3 mb-3" action="{% url 'user-update' %}" method="post" novalidate>
+  <h3 class="fw-semibold mb-3">Dodatni podaci</h3>
+
+  <!-- 4 CSRF tokens -->
+  {% csrf_token %}
+
+  <div class="row mb-3">
+    <label class="col-sm-4 col-form-label" for="phone">Broj telefona</label>
+    <div class="col-sm-8">
+      {{ update_form2.phone }}
+      {% if update_form2.phone.errors %}
+        <span class="form-text text-danger">{{ update_form2.phone.errors.0 }}</span>
+      {% endif %}
+    </div>
+  </div>
+
+  <div class="row mb-3">
+    <label class="col-sm-4 col-form-label" for="first_name">Ime</label>
+    <div class="col-sm-8">
+      {{ update_form2.first_name }}
+      {% if update_form2.first_name.errors %}
+        <span class="form-text text-danger">{{ update_form2.first_name.errors.0 }}</span>
+      {% endif %}
+    </div>
+  </div>
+
+  <div class="row mb-3">
+    <label class="col-sm-4 col-form-label" for="last_name">Prezime</label>
+    <div class="col-sm-8">
+      {{ update_form2.last_name }}
+      {% if update_form2.last_name.errors %}
+        <span class="form-text text-danger">{{ update_form2.last_name.errors.0 }}</span>
+      {% endif %}
+    </div>
+  </div>
+
+  <div class="row mb-3">
+    <label class="col-sm-4 col-form-label" for="birth_date">Datum rođenja</label>
+    <div class="col-sm-8">
+      {{ update_form2.birth_date }}
+      {% if update_form2.birth_date.errors %}
+        <span class="form-text text-danger">{{ update_form2.birth_date.errors.0 }}</span>
+      {% endif %}
+    </div>
+  </div>
+
+  <input class="btn btn-primary fw-semibold" type="submit" value="Snimi">
+</form>

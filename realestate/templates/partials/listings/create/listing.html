@@ -1,0 +1,34 @@
+{# Listing #}
+<fieldset>
+  <h3 class="fw-semibold mb-3">Oglas</h3>
+
+  <div class="row mb-3">
+    <label class="col-sm-4 col-form-label" for="title">Naslov</label>
+    <div class="col-sm-8">
+      {{ listing_form.title }}
+      {% if listing_form.title.errors %}
+        <span class="form-text text-danger">{{ listing_form.title.errors.0 }}</span>
+      {% endif %}
+    </div>
+  </div>
+
+  <div class="row mb-3">
+    <label class="col-sm-4 col-form-label" for="price">Cena</label>
+    <div class="col-sm-8">
+      {{ listing_form.price }}
+      {% if listing_form.price.errors %}
+        <span class="form-text text-danger">{{ listing_form.price.errors.0 }}</span>
+      {% endif %}
+    </div>
+  </div>
+
+  <div class="row mb-3">
+    <label class="col-sm-4 col-form-label" for="description">Opis</label>
+    <div class="col-sm-8">
+      {{ listing_form.description }}
+      {% if listing_form.description.errors %}
+        <span class="form-text text-danger">{{ listing_form.description.errors.0 }}</span>
+      {% endif %}
+    </div>
+  </div>
+</fieldset>
