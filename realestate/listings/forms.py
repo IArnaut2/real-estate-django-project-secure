@@ -2,6 +2,8 @@ from django import forms
 from django.core.validators import MinValueValidator, RegexValidator
 from django.utils.translation import gettext_lazy as _
 
+from realestate.validators import AfterOrEqual
+
 from .helpers.dropdowns import city_list, condition_list, heating_list, furnishings_list
 from .models import Terms, Listing
 
@@ -9,7 +11,7 @@ class TermsForm(forms.ModelForm):
     move_in_date = forms.DateField(
         required=True,
         # 2 Input validation & sanitization
-        error_messages={"required":_("field.required").format(field="move_in_date")},
+        error_messages={"required":_("field.required").format(field=_("move_in_date"))},
         widget=forms.DateInput(attrs={"type": "date", "class": "form-control"})
     )
 
@@ -20,6 +22,9 @@ class TermsForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super(TermsForm, self).__init__(*args, **kwargs)
 
+        # 2 Input validation & sanitization
+        self.fields["move_in_date"].validators = [AfterOrEqual()]
+
         for field in ["deposit", "for_students", "for_workers", "smoking_allowed", "pets_allowed"]:
             self.fields[field].widget.attrs["class"] = "form-check-input"
 
@@ -27,18 +32,7 @@ class ListingForm(forms.ModelForm):
     class Meta:
         model = Listing
         fields = "__all__"
-        # 2 Input validation & sanitization
         exclude = ["terms", "poster"]
-        error_messages = {
-            "street": {"required": _("field.required").format(field=_("street"))},
-            "story_count": {"required": _("field.required").format(field=_("story_count"))},
-            "room_count": {"required": _("field.required").format(field=_("room_count"))},
-            "area": {"required": _("field.required").format(field=_("area"))},
-            "story": {"required": _("field.required").format(field=_("story"))},
-            "title": {"required": _("field.required").format(field=_("title"))},
-            "price": {"required": _("field.required").format(field=_("price"))},
-            "description": {"required": _("field.required").format(field=_("description"))}
-        }
         widgets = {
             "city": forms.Select(choices=city_list),
             "condition": forms.Select(choices=condition_list),
@@ -59,6 +53,8 @@ class ListingForm(forms.ModelForm):
 
         for field in ["street", "story_count", "room_count", "area", "story", "title", "price", "description"]:
             self.fields[field].widget.attrs["class"] = "form-control"
+            # 2 Input validation & sanitization
+            self.fields[field].error_messages = {"required": _("field.required").format(field=_(field))}
 
         for field in ["city", "condition", "heating", "furnishings", "items"]:
             self.fields[field].widget.attrs["class"] = "form-select"
