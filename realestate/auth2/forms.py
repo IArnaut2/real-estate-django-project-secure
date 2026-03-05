@@ -15,8 +15,6 @@ class RegisterForm(UserCreationForm):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        # activate("sr")
-        # print(get_language())
 
         # 2 Input validation & sanitization
         self.fields["password1"].error_messages = {"required": _("field.required").format(field=_("password1"))}
@@ -42,7 +40,6 @@ class RegisterForm(UserCreationForm):
 
         return pass2
 
-
 class LoginForm(AuthenticationForm):
     username = forms.EmailField(widget=forms.EmailInput)
     password = forms.CharField(widget=forms.PasswordInput)
@@ -51,8 +48,8 @@ class LoginForm(AuthenticationForm):
         super().__init__(*args, **kwargs)
         # 2 Input validation & sanitization
         self.fields["username"].validators = [EmailValidator(message=_("email.email"))]
+        self.fields["username"].error_messages = {"required": _("field.required").format(field=_("email"))}
+        self.fields["password"].error_messages = {"required": _("field.required").format(field=_("password"))}
         
         for field in self.fields:
             self.fields[field].widget.attrs["class"] = "form-control"
-            # 2 Input validation & sanitization
-            self.fields[field].error_messages = {"required": _("field.required").format(field=_(field))}

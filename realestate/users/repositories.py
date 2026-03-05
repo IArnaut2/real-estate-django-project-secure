@@ -63,12 +63,15 @@ class UserRepository:
     
     # Other
     def find_by_email(self, email):
-        # 1 Parametrized queries
-        user = CustomUser.objects.get(email=email)
+        try:
+            # 1 Parametrized queries
+            user = CustomUser.objects.get(email=email)
 
-        # 5 Security logging
-        logger.info("User with the email address %s fetched from the database.", email)
-        return user
+            # 5 Security logging
+            logger.info("User with the email address %s fetched from the database.", email)
+            return user
+        except CustomUser.DoesNotExist:
+            return None
 
     def is_registered(self, email):
         user = self.find_by_email(email)
