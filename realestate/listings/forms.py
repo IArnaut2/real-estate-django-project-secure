@@ -32,7 +32,7 @@ class ListingForm(forms.ModelForm):
     class Meta:
         model = Listing
         fields = "__all__"
-        exclude = ["terms", "poster"]
+        exclude = ["terms", "poster", "saves"]
         widgets = {
             "city": forms.Select(choices=city_list),
             "condition": forms.Select(choices=condition_list),
