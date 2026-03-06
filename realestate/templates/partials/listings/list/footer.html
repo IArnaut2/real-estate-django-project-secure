@@ -1,7 +1,9 @@
+{% load listing_extras %}
+
 {# Card footer #}
 <div class="card-footer d-flex justify-content-between align-items-center">
   <span class="fw-lighter">
-    {% if listing.is_updated() %}
+    {% if listing.is_updated %}
       Ažuriran: {{ listing.updated_at|date:"d.m.Y h:m" }}
     {% else %}
       Postavljen: {{ listing.created_at|date:"d.m.Y h:m" }}
@@ -13,7 +15,8 @@
     {% csrf_token %}
 
     <button class="btn btn-link" type="submit">
-      {% if listing.is_saved(user.id) %}
+      {% call_method listing "is_saved" user as var %}
+      {% if var %}
         <i class="bi bi-bookmark-plus-fill text-success fs-4"></i>
       {% else %}
         <i class="bi bi-bookmark-plus text-success fs-4"></i>

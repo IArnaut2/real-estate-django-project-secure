@@ -2,7 +2,9 @@
 <div class="row row-cols-sm-2 row-cols-md-2 row-cols-lg-1" style="min-height: 60vh;">
   {% if listings %}
     {% for listing in listings %}
+    <div class="col">
       {% include "./card.html" with listing=listing %}
+    </div>
     {% endfor %}
   {% else %}
     <div class="col-12">Oglasi nisu dostupni.</div>

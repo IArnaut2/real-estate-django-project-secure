@@ -100,18 +100,20 @@ class ListingUpdateView(generic.UpdateView):
         
 
 
-def listing_delete(request: HttpRequest, pk):
+def listing_delete(req: HttpRequest, pk):
     listing = listing_repo.find_by_pk(pk)
     terms = listing.terms
     
     # 3 Authentication and authorization (role-based)
-    if request.user == listing.poster:
+    if req.user == listing.poster:
         listing_repo.delete(listing)
         terms_repo.delete(terms)
         return redirect(reverse("listing-list"))
     
     return redirect(reverse("listing-detail", kwargs={"pk":pk}))
 
+def listing_save(req: HttpRequest, pk):
+    pass
 
 class ListingSearchView(generic.ListView):
     model = Listing

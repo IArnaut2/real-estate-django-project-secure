@@ -12,4 +12,5 @@ urlpatterns = [
     path("postavka", login_required(views.listing_create), name="listing-create"),
     path("<int:pk>/izmena", login_required(views.ListingUpdateView.as_view()), name="listing-edit"),
     path("<int:pk>/brisanje", login_required(views.listing_delete), name="listing-delete"),
+    path("<int:pk>/cuvanje", login_required(views.listing_save), name="listing-save"),
 ]
