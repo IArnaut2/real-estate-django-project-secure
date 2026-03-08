@@ -99,8 +99,11 @@ class ListingRepository:
         return listings
     
     def save(self, listing: Listing, user: CustomUser):
-        # 2 Parametrized queries
         if listing.is_saved(user):
+            # 2 Parametrized queries
+            listing.saves.remove(user)
+        else:
+            # 2 Parametrized queries
             listing.saves.add(user)
 
 

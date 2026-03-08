@@ -16,6 +16,7 @@
         <!-- 4 Authentication & authorization -->
         {% if user.is_authenticated and request.user == user %}
           <div class="list-group list-group-flush">
+            <a class="list-group-item list-group-item-action fw-semibold" href="{% url 'my-profile' %}">Moji oglasi</a>
             <a class="list-group-item list-group-item-action fw-semibold" href="{% url 'user-saved' %}">Sačuvani oglasi</a>
             <a class="list-group-item list-group-item-action fw-semibold" href="{% url 'user-settings' %}">Podešavanja</a>
           </div>

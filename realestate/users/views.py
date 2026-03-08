@@ -11,11 +11,11 @@ from listings.repositories import listing_repo
 
 # Create your views here.
 # Main
-def detail(req: HttpRequest, pk):
+def detail(req: HttpRequest, pk=None):
     order = req.GET.get("redosled") if "redosled" in req.GET else ""
     page = req.GET.get("strana")
 
-    user = user_repo.find_by_pk(pk)
+    user = req.user if pk == None else user_repo.find_by_pk(pk)
     listings = listing_repo.find_by_user(user, order)
     paginator = Paginator(listings, per_page=2)
     listings = paginator.get_page(page)

@@ -69,10 +69,6 @@ class Listing(models.Model):
     def get_area(self):
         return f"{self.area} m2"
     
-    def get_story(self):
-        story = self.story if self.story > 0 else "Prizemlje"
-        return f"{story}/{self.story_count}"
-    
     def get_move_in_date(self):
         comparison = self.terms.move_in_date > self.created_at.date()
         date = self.terms.move_in_date.strftime("%d.%m.%Y")

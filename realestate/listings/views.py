@@ -97,8 +97,6 @@ class ListingUpdateView(generic.UpdateView):
             return render(request, self.template_name, context)
         
         return redirect(reverse("listing-edit", kwargs={"pk":pk}))
-        
-
 
 def listing_delete(req: HttpRequest, pk):
     listing = listing_repo.find_by_pk(pk)
@@ -113,7 +111,14 @@ def listing_delete(req: HttpRequest, pk):
     return redirect(reverse("listing-detail", kwargs={"pk":pk}))
 
 def listing_save(req: HttpRequest, pk):
-    pass
+    listing = listing_repo.find_by_pk(pk)
+
+    print(req.user != listing.poster)
+
+    if req.user != listing.poster:
+        listing_repo.save(listing, req.user)
+    
+    return redirect(req.META.get("HTTP_REFERER", "/"))
 
 class ListingSearchView(generic.ListView):
     model = Listing
