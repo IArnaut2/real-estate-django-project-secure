@@ -1,7 +1,7 @@
 {# Building #}
 <div class="mb-3">
   <h3 class="fw-semibold border-bottom border-secondary-subtle pb-3 mb-3">Podaci o zgradi</h3>
-  <p>{{ listing.getAddress() }}</p>
+  <p>{{ listing.get_address }}</p>
 
   {# List #}
   <ul class="list-group-flush">
@@ -36,7 +36,7 @@
 {# Terms #}
 <div class="mb-3">
   <h3 class="fw-semibold border-bottom border-secondary-subtle pb-3 mb-3">Uslovi zakupa</h3>
-  <p>{{ listing.get_move_in_date() }}</p>
+  <p>{{ listing.get_move_in_date }}</p>
 
   {% with terms=listing.terms %}
     {# List #}

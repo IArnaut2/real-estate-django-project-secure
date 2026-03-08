@@ -74,7 +74,7 @@ class Listing(models.Model):
         return f"{story}/{self.story_count}"
     
     def get_move_in_date(self):
-        comparison = self.terms.move_in_date > self.created_at
+        comparison = self.terms.move_in_date > self.created_at.date()
         date = self.terms.move_in_date.strftime("%d.%m.%Y")
         text = date if comparison else "odmah"
         return f"Useljiv {text}"
