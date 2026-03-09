@@ -121,14 +121,23 @@ LOGOUT_REDIRECT_URL = "/odjava"
 
 # 5 Security logging
 LOGGING = {
-  "version": 1,
-  "disable_existing_loggers": False,
-  "handlers": {
+    "version": 1,
+    "disable_existing_loggers": False,
+    "handlers": {
     "file": {
-      "class": "logging.FileHandler",
-      "filename": "realestate.log"
+        "level": "DEBUG",
+        "class": "logging.FileHandler",
+        "filename": "realestate.log"
     },
-    "console": {"class": "logging.StreamHandler"}
-  },
-  "loggers": {"": {"handlers": ["file", "console"]}}
+    "console": {
+        
+        "class": "logging.StreamHandler"
+    }
+    },
+    "loggers": {"":
+        {
+            "handlers": ["file", "console"], 
+            "level": "DEBUG"
+        }
+    }
 }

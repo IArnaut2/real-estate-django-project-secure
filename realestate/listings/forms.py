@@ -12,7 +12,7 @@ class TermsForm(forms.ModelForm):
         required=True,
         # 2 Input validation & sanitization
         error_messages={"required":_("field.required").format(field=_("move_in_date"))},
-        widget=forms.DateInput(attrs={"type": "date", "class": "form-control"})
+        widget=forms.DateInput(format="%Y-%m-%d", attrs={"type": "date", "class": "form-control"})
     )
 
     class Meta:
