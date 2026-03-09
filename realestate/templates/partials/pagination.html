@@ -1,36 +1,37 @@
 {# Pagination #}
+{% load listing_extras %}
 <ul class="pagination mb-3">
-  {% if listings.number > 1 %}
+  {% if page_obj.number > 1 %}
     <li class="page-item">
       <a class="page-link" href="?strana=1">&laquo; Prva</a>
     </li>
   {% endif %}
   
-  {% if listings.has_previous %}
+  {% if page_obj.has_previous %}
     <li class="page-item">
-      <a class="page-link" href="{% querystring strana=listings.previous_page_number %}">Prethodna</a>
+      <a class="page-link" href="{% querystring strana=page_obj.previous_page_number %}">Prethodna</a>
     </li>
     <li class="page-item">
-      <a class="page-link" href="{% querystring strana=listings.previous_page_number %}">{{ listings.previous_page_number }}</a>
+      <a class="page-link" href="{% querystring strana=page_obj.previous_page_number %}">{{ page_obj.previous_page_number }}</a>
     </li>
   {% endif %}
 
   <li class="page-item active">
-    <a class="page-link" href="{% querystring strana=listings.number %}">{{ listings.number }}</a>
+    <a class="page-link" href="{% querystring strana=page_obj.number %}">{{ page_obj.number }}</a>
   </li>
 
-  {% if listings.has_next %}
+  {% if page_obj.has_next %}
     <li class="page-item">
-      <a class="page-link" href="{% querystring strana=listings.next_page_number %}">{{ listings.next_page_number }}</a>
+      <a class="page-link" href="{% querystring strana=page_obj.next_page_number %}">{{ page_obj.next_page_number }}</a>
     </li>
     <li class="page-item">
-      <a class="page-link" href="{% querystring strana=listings.next_page_number %}">Sledeća</a>
+      <a class="page-link" href="{% querystring strana=page_obj.next_page_number %}">Sledeća</a>
     </li>
   {% endif %}
   
-  {% if listings.number < listings.paginator.num_pages %}
+  {% if page_obj.number < page_obj.paginator.num_pages %}
     <li class="page-item">
-      <a class="page-link" href="{% querystring strana=listings.paginator.num_pages %}">Poslednja &raquo;</a>
+      <a class="page-link" href="{% querystring strana=page_obj.paginator.num_pages %}">Poslednja &raquo;</a>
     </li>
   {% endif %}
 </ul>

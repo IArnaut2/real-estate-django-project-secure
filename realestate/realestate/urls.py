@@ -19,6 +19,6 @@ from django.urls import include, path
 urlpatterns = [
     path("i18n/", include('django.conf.urls.i18n')),
     path("", include("auth2.urls")),
-    path("oglasi/", include("listings.urls")),
+    path("oglasi", include("listings.urls")),
     path("korisnici/", include("users.urls")),    
 ]

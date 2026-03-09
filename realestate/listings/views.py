@@ -18,13 +18,14 @@ def listing_list(req: HttpRequest):
 
     listings = listing_repo.find_all(order)
     paginator = Paginator(listings, per_page=2)
-    listings = paginator.get_page(page)
+    page_obj = paginator.get_page(page)
 
     # 5 Security logging
     logger.info("User %s accessed: Listing list page.", username)
     return render(req, "listings/listing_list.html", {
         "order_list": order_list,
-        "listings": listings
+        "page_obj": page_obj,
+        "listings": page_obj.object_list
     })
 
 def listing_create_get(req: HttpRequest, template: str):
